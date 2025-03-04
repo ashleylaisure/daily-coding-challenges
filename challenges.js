@@ -13,10 +13,11 @@ sayHello() //=> Hello!
 -----------------------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
 
+function sayHello() {
+  return "Hello!";
+}
 
-
-
-
+sayHello()
 /*-----------------------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -34,7 +35,9 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
-
+function addOne(num) {
+  return num + 1;
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -57,7 +60,14 @@ addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
 
-
+function addTwoNumbers(numA, numB) {
+  if ( isNaN(numA) || isNaN(numB)) {
+    return NaN;
+  } else {
+    return numA + numB;
+  }
+  
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -80,9 +90,22 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
+// function sumNumbers(arr) {
+//   let sum = 0
+//   for (let i = 0; i< arr.length; i++) {
+//     sum = sum + arr[i]
+//   }
+//   return sum;
+// }
 
+function sumNumbers(arr) {
+  let sum = 0
+  arr.forEach(num => {
+    sum += num
+  })
 
-
+  return sum;
+}
 /*-----------------------------------------------------------------------------
 Challenge: 04-addList
 
@@ -103,9 +126,19 @@ addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
 
+// function addList(...nums) {
+//   let sum = 0
+//   nums.forEach(num => {
+//     sum += num
+//   })
+//   return sum
+// }
 
-
-
+const addList = (...nums) => {
+  return nums.reduce((sum, num) => {
+    return sum + num
+  }, 0)
+}
 
 /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
