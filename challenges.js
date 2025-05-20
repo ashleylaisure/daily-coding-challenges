@@ -17,7 +17,6 @@ function sayHello() {
   return "Hello!";
 }
 
-sayHello()
 /*-----------------------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -38,7 +37,6 @@ addOne(-5) //=> -4
 function addOne(num) {
   return num + 1;
 }
-
 
 /*-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -69,7 +67,6 @@ function addTwoNumbers(numA, numB) {
   
 }
 
-
 /*-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -90,22 +87,8 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-// function sumNumbers(arr) {
-//   let sum = 0
-//   for (let i = 0; i< arr.length; i++) {
-//     sum = sum + arr[i]
-//   }
-//   return sum;
-// }
+const sumNumbers = (arr) => arr.reduce((acc, cur) => acc + cur, 0)
 
-function sumNumbers(arr) {
-  let sum = 0
-  arr.forEach(num => {
-    sum += num
-  })
-
-  return sum;
-}
 /*-----------------------------------------------------------------------------
 Challenge: 04-addList
 
@@ -126,19 +109,7 @@ addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
 
-// function addList(...nums) {
-//   let sum = 0
-//   nums.forEach(num => {
-//     sum += num
-//   })
-//   return sum
-// }
-
-const addList = (...nums) => {
-  return nums.reduce((sum, num) => {
-    return sum + num
-  }, 0)
-}
+const addList = (...nums) => nums.reduce((acc, cur) => acc + cur, 0)
 
 /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
@@ -163,9 +134,7 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder here:
 
-
-
-
+const computeRemainder = (x, y) => !y ? Infinity : x - (y * Math.floor(x /y))
 
 /*-----------------------------------------------------------------------------
 Challenge: 06-range
@@ -190,9 +159,14 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-
-
-
+function range(start, end) {
+  if (start > end) {
+    return "First argument must be less than second"
+  } else {
+    return Array.from({length: end - start}, (_,index) => start + index)
+  }
+  
+}
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -212,9 +186,9 @@ reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-
-
-
+function reverseUpcaseString(str) {
+  return str.toUpperCase().split('').reverse().join('')
+}
 
 /*-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -234,9 +208,7 @@ removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-
-
-
+const removeEnds = str => str.length < 3 ? '' : str.split('').slice(1,-1).join('')
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
@@ -276,10 +248,14 @@ charCount('Today is fantastic!')
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
+function charCount(str) {
+  str.split('').reduce((obj, key) => {
+    obj[key]= key;
+    return obj
+  }, {})
+}
 
-
-
-
+console.log(charCount('hello'))
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -306,10 +282,18 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
+function formatWithPadding(num, str, padding) {
+  let string = num.toString()
 
+  if (padding <= string.length ) {
+    return string
+  } else {
+    return str.repeat(padding - string.length) + string
+  }
+  
+}
 
-
-
+// console.log(formatWithPadding(1234, '*', 3))
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -334,9 +318,20 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
+function isPalindrome(str) {
+  let array = str.toLowerCase().split('').filter((char) => char !== ' ')
+  let reversedArray = array.slice().reverse()
+  console.log(array)
+  console.log(reversedArray)
+  if (array.length === 0 || array.length === 1 || array.join('') === reversedArray.join('')) {
+    return true
+  } else {
+    return false
+  }
 
+}
 
-
+// console.log(isPalindrome('rotor'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
