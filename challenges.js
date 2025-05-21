@@ -249,13 +249,14 @@ charCount('Today is fantastic!')
 // Your solution for 09-charCount here:
 
 function charCount(str) {
-  str.split('').reduce((obj, key) => {
-    obj[key]= key;
-    return obj
-  }, {})
+  let array = str.split("")
+  let object = {}
+
+
+  return array
 }
 
-console.log(charCount('hello'))
+// console.log(charCount('hello'))
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -359,10 +360,20 @@ hammingDistance('abc', 'ab') //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
+function hammingDistance(strOne, strTwo) {
+  if (strOne.length !== strTwo.length) {
+    return NaN
+  } else {
+    let count = 0
+    for (let i = 0; i < strOne.length; i ++) {
+      if (strOne[i] !== strTwo[i]){
+        count++
+      }
+    } return count
+  }
+}
 
-
-
-
+console.log(hammingDistance("abs", "abc"))
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
