@@ -373,7 +373,7 @@ function hammingDistance(strOne, strTwo) {
   }
 }
 
-console.log(hammingDistance("abs", "abc"))
+// console.log(hammingDistance("abs", "abc"))
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -397,10 +397,14 @@ mumble('!A 2') //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 
+function mumble(str) {
+  return str.split('').map( (char, index) => 
+    // console.log(char, index) )
+    char.repeat(index + 1)).join('-')
 
+}
 
-
-
+console.log(mumble('abc'))
 /*-----------------------------------------------------------------------------
 Challenge: 14-fromPairs
 
