@@ -249,14 +249,36 @@ charCount('Today is fantastic!')
 // Your solution for 09-charCount here:
 
 function charCount(str) {
-  let array = str.split("")
-  let object = {}
+
+//   const strArray = str.split("")
+//   const count = {}
+
+//   strArray.forEach(char => {
+//     if(count[char]) {
+//       count[char] += 1
+//     } else {
+//       count[char] = 1
+//     }
+//   })
+//   return count
 
 
-  return array
+  // const count = {}
+  // for (let i in str) {
+  //   const char = str.charAt(i)
+  //   count[char] ? count[char]++ : count[char] = 1
+  // }
+
+  // return count
+
+  return [...str].reduce((acc, char) => {
+    acc[char] ? acc[char]++ : acc[char] = 1
+    return acc
+  }, {})
+
 }
 
-// console.log(charCount('hello'))
+console.log(charCount('hello !'))
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -404,7 +426,7 @@ function mumble(str) {
 
 }
 
-console.log(mumble('abc'))
+// console.log(mumble('!A 2'))
 /*-----------------------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -429,9 +451,22 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ])
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 
+function fromPairs(array) {
+  // return Object.fromEntries(array)
+  let obj = array.reduce((acc, [key, value]) => {
+    acc[key] = value;
+    return acc
+  }, {})
 
+  return obj
+}
 
-
+// console.log(fromPairs( [ 
+//   ['name', 'Sam'],
+//   ['age', 24], 
+//   ['name', 'Sally']
+//   ]) 
+// )
 
 /*-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
