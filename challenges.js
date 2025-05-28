@@ -278,7 +278,7 @@ function charCount(str) {
 
 }
 
-console.log(charCount('hello !'))
+// console.log(charCount('hello !'))
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -495,10 +495,13 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 -----------------------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
+function mergeObjects(target, ...source) {
+  // const obj = Object.assign({}, target, ...source)
+  // return a modified version of the target object
+  return Object.assign(target, ...source)
+}
 
-
-
-
+// console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}))
 /*-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
