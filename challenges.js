@@ -540,10 +540,24 @@ findHighestPriced([
 -----------------------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
+function findHighestPriced(arr) {
+  let maxPrice = 0
+  // loop over the array and check if the price on the current price 
+  // is higher than maxPrice
+  arr.forEach(obj => {
+    // if so reassign maxPrice 
+    // obj.price > maxPrice ? maxPrice = obj.price : null
+    if(obj.price > maxPrice) maxPrice = obj.price
+    // find() the first object where the price === maxPrice
+  }); return arr.find(obj => obj.price === maxPrice)
+} 
 
-
-
-
+console.log(findHighestPriced([
+  { sku: 'a1', price: 25 },
+  { sku: 'b2', price: 50 },
+  { sku: 'c3', price: 50 },
+  { sku: 'd4', price: 10 }
+]))
 /*-----------------------------------------------------------------------------
 Challenge: 17-mapArray
 
